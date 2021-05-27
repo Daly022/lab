@@ -1,20 +1,41 @@
 # Create your views here.
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import Encuesta
+from .models import Encuesta,Producto
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.views.generic import View
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from .forms import formularioProducto,formularioEncuesta
-from .models import Producto
 
 def listreview(request):
     reviews = Encuesta.objects.all().order_by('product_calificacion')
-    nombre = " "
     context = {
         'reviews': reviews
     }
     return render(request, 'inicio.html', context)
+
+def resepro(request, product):
+    products = Producto.objects.filter(product_name=product)
+    for i in products:
+        reviews = Encuesta.objects.filter(product_name=i.id)
+    if len(reviews)>0 :
+        context = {
+            'products': products,
+            'reviews': reviews
+        }
+    else:
+        context = {
+            'products': products,
+            'reviews': 'Este producto no tiene reseñas'
+        }
+    return render(request, 'respro.html', context)
+
+def listpro(request):
+    products = Producto.objects.all().order_by('id')
+    context = {
+        'products': products,
+    }
+    return render(request, 'products.html', context)
 
 def crearPro(request):
     if request.method=="POST":

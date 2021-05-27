@@ -6,22 +6,55 @@
 -->
 <html>
 	<head>
-		<title>Añadir Producto</title>
+		<title>Crear Producto</title>
 		<meta charset="utf-8" />
 		{% load static %}
 		<link rel="stylesheet" href="{% static 'css/mainUno.css' %}"/>
 		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
 	</head>
-	<body>
-	<section id="footer">
-		<div class="inner">
-			<form method="POST" action="" class="mt-2" autocomplete="off" enctype="multipart/form-data">
-				{% csrf_token %}
-				{{form}}
-                <br><br><br>
-				<button type="submit" class="btn btn-success">Añadir producto</button>
-			</form>
-		</div>
-	</section>
+	<body class="is-preload">
+	<header id="header" class="alt">
+						<h1><a href="{% url 'Inicio'%}">Proviews</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+    </header>
+        <!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="{% url 'Inicio'%}">Inicio</a></li>
+								<li><a href="{% url 'Productos'%}">Productos</a></li>
+								<li><a href="#">Añadir Productos</a></li>
+								<li><a href="{% url 'Encuesta'%}">Añadir Reseña</a></li>
+								<li><a href="{% url 'Salir'%}">Cerrar Sesion</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+					<section id="wrapper">
+							<section id="one" class="wrapper spotlight style4">
+								<div class="inner">
+									<a class="image"><img src="{% static 'images/Imagen1.png' %}" alt="" /></a>
+									<div class="content">
+										<h2 class="major">Añadir Producto</h2>
+										<form method="POST" action="" class="mt-2" autocomplete="off" enctype="multipart/form-data">
+														{% csrf_token %}
+														{{form}}<br><br>
+											<button type="submit" class="btn btn-success">Enviar</button>
+										</form>
+									</div>
+								</div>
+							</section>
+					</section>
+
     </body>
+	<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
 </html>

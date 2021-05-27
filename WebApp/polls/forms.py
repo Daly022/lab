@@ -10,4 +10,4 @@ class formularioProducto(forms.ModelForm):
 class formularioEncuesta(forms.ModelForm):
     class Meta:
         model = Encuesta
-        fields = ('product_name', 'encuesta_contenido','product_lugarCompra','product_calificacion','product_precio','product_precioTamano','product_tiempoUso','product_calidad')
+        fields = ('product_name', 'encuesta_contenido','product_lugarCompra','product_calificacion','product_precio','product_precioTamano','product_calidad')

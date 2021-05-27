@@ -1,6 +1,7 @@
 from django.urls import path
 
 from . import views
+from .models import Producto
 
 urlpatterns = [
     path('', views.listreview, name='Inicio'),
@@ -9,5 +10,7 @@ urlpatterns = [
     path('login/', views.acceder, name='Acceder'),
     path('producto/', views.crearPro, name='Producto'),
     path('encuesta/', views.crearReview, name='Encuesta'),
+    path('productos/', views.listpro, name='Productos'),
+    path('prore/<str:product>', views.resepro, name='Proview'),
 ]
 
